@@ -47,7 +47,7 @@ class GridWorld:
         for position in reversed(self.pheromon_list):
             self.ant.position = position
             self.display_grid()
-            time.sleep(0.1)
+            time.sleep(0.17)
             if self.ant.position == (0, 0):  # Check if ant has reached home
                 print("Ant has returned home.")
                 return True
@@ -70,7 +70,7 @@ class GridWorld:
         print()
 
 
-initial_pheromons = 10
+initial_pheromons = 1
 found_home = False
 
 while not found_home:
@@ -85,6 +85,7 @@ while not found_home:
         gridworld.move_ant(direction)
         print(f"Step {step_count}")
         gridworld.display_grid()
+        time.sleep(0.17)
         
         if gridworld.find_food():
             # Try to return home if food is found
@@ -95,7 +96,7 @@ while not found_home:
             else:
                 # If ant ran out of pheromones while returning, stop this episode
                 print(f"Ant ran out of pheromones with MaxPheromons = {initial_pheromons}. Restarting with more pheromones.")
-                initial_pheromons += 1  # Increase the maximum pheromones for the next episode
+                initial_pheromons += 1
                 break  # Exit the inner loop and start a new episode
 
-    time.sleep(3)
+    time.sleep(2)
