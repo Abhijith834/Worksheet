@@ -32,8 +32,7 @@ class GridWorld:
         if len(self.pheromon_list) > self.MaxPheromons:
             del self.pheromon_list[0]
 
-    def move_ant(self, direction):
-        # Move the ant in the specified direction
+    def move_ant(self, direction): # Move the ant in the specified direction
         self.ant.move(direction)
         self.leave_pheromon(self.ant.position)
 
@@ -43,8 +42,7 @@ class GridWorld:
             return True
         return False
 
-    def go_home(self):
-        # Move the ant back home by following the pheromone trail in reverse
+    def go_home(self): # Move the ant back home by following the pheromone trail in reverse
         print("Returning home...")
         for position in reversed(self.pheromon_list):
             self.ant.position = position
@@ -54,10 +52,9 @@ class GridWorld:
                 print("Ant has returned home.")
                 return True
         print("Ant ran out of pheromones while returning home.")
-        return False  # Indicate that the ant ran out of pheromones
+        return False
 
-    def display_grid(self):
-        # Display the grid with the ant's position marked as "A"
+    def display_grid(self): # Display the grid with the ant's position marked as "A"
         for r in range(self.grid.shape[0]):
             row_display = []
             for c in range(self.grid.shape[1]):
@@ -72,7 +69,7 @@ class GridWorld:
             print("[" + "|".join(row_display) + "]")
         print()
 
-# Start with the initial number of pheromones and increase in each episode
+
 initial_pheromons = 10
 found_home = False
 
@@ -101,4 +98,4 @@ while not found_home:
                 initial_pheromons += 1  # Increase the maximum pheromones for the next episode
                 break  # Exit the inner loop and start a new episode
 
-    time.sleep(3)  # Pause briefly between episodes for readability
+    time.sleep(3)
