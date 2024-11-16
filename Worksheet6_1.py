@@ -94,7 +94,7 @@ while not found_home:
                 found_home = True
                 break
             else:
-                # If ant ran out of pheromones while returning, stop this episode
+                # If the ant ran out of pheromones while returning, stop this episode
                 print(f"Ant ran out of pheromones with MaxPheromons = {initial_pheromons}. Restarting with more pheromones.")
                 initial_pheromons += 1
                 break  # Exit the inner loop and start a new episode
