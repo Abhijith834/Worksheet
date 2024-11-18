@@ -67,7 +67,7 @@ class GridWorld:
         for row in grid:
             print("[" + "|".join(row) + "]")
 
-# Define possible actions
+# Define all possible actions
 actions = {
     "north": (-1, 0),
     "south": (1, 0),
@@ -107,6 +107,7 @@ def calculate_empowerment(position, grid_size, occupied_positions):
 def vip_empowerment_policy(position, grid_size, occupied_positions):
     max_empowerment = -1
     best_moves = []
+
     # Evaluate all possible moves
     for action in actions.keys():
         proposed_position = apply_action(position, action)
